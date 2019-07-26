@@ -18,11 +18,12 @@
     <link rel="stylesheet" href="css/style.css" />
     <title>Bootstrap Theme</title>
   </head>
-  <body>
+  <body data-spy="scroll" data-target="#main-nav" id="home">
     <!--Start here-->
 
     <nav
-      class="navbar navbar-expand-sm  bg-dark navbar-dark  navbar-fixed-top text-white"
+      class="navbar navbar-expand-sm  bg-dark navbar-dark  fixed-top text-white"
+      id="main-nav"
     >
       <div class="container">
         <a href="index.html" class="navbar-brand text-white ">LoopLab</a>
@@ -165,7 +166,7 @@
     </section>
 
     <!--Explore section-->
-    <section class="explore-section bg-light text-muted py-5">
+    <section id="explore-section " class="bg-light text-muted py-5">
       <div class="container">
         <div class="row">
           <div class="col-md-6 ">
@@ -210,7 +211,7 @@
       </div>
     </section>
     <!--Create head section-->
-    <section class="create-head-section bg-primary ">
+    <section id="create-head-section" class="bg-primary">
       <div class="container">
         <div class="row">
           <div class="col text-center py-5">
@@ -274,7 +275,7 @@
     </section>
 
     <!--Share head section-->
-    <section class="share-head-section bg-primary">
+    <section id="share-head-section" class="bg-primary">
       <div class="container">
         <div class="row">
           <div class="col text-center py-4">
@@ -290,11 +291,122 @@
       </div>
     </section>
 
-    <script
+    <!--Share section-->
+    <section id="share-section " class="bg-light">
+      <div class="container">
+        <div class="row text-dark text-muted">
+          <div class="col-md-6 py-5">
+            <img
+              class="img-fluid rounded-circle"
+              src="img/share-section1.jpg"
+            />
+          </div>
+          <div class="col-md-6 py-5">
+            <h3>Share what you create</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
+              recusandae nihil facere pe, iure expedita, officia, iusto ipsam.
+              Nobis eum minima ratione?
+            </p>
+            <div class="d-flex">
+              <div class="p-4 self-align-start">
+                <i class="fas fa-check fa-2x"></i>
+              </div>
+              <div class=" p-4 self-align-end">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Similique at quaerat ipsum obcaecati temporibus, explicabo
+                  eum, aliquam, et eos excepturi error impedit quia voluptatum
+                  nihil. Odit accusamus similique eum atque!
+                </p>
+              </div>
+            </div>
+
+            <div class="d-flex">
+              <div class="p-4 self-align-start">
+                <i class="fas fa-check fa-2x"></i>
+              </div>
+              <div class="p-4 self-align-end">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Similique at quaerat ipsum obcaecati temporibus, explicabo
+                  eum, aliquam, et eos excepturi error impedit quia voluptatum
+                  nihil. Odit accusamus similique eum atque!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Footer section-->
+
+    <section class="footer-section">
+      <div class="container">
+        <div class="row">
+          <div class="col text-center py-4">
+            <h3>Looplab</h3>
+            <p>Copyright &copy; <span id="year"></span></p>
+            <button
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#contactmodal"
+            >
+              Contact Us
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Modal section-->
+
+    <div class="modal text-dark fade" id="contactmodal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Contact us</h5>
+            <button class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary btn-block">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
+    ></script> -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
     ></script>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -308,6 +420,26 @@
     ></script>
     <script>
       $("#year").text(new Date().getFullYear());
+      $("body").scrollspy({ target: "#main-nav" });
+
+      // Smooth Scrolling
+      $("#main-nav a").on("click", function(event) {
+        if (this.hash !== "") {
+          event.preventDefault();
+
+          const hash = this.hash;
+
+          $("html, body").animate(
+            {
+              scrollTop: $(hash).offset().top
+            },
+            800,
+            function() {
+              window.location.hash = hash;
+            }
+          );
+        }
+      });
     </script>
   </body>
 </html>
