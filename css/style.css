@@ -41,7 +41,7 @@ body {
   border-radius: 5px;
 }
 
-.explore-section .fas {
+#explore-section .fas {
   background: #333;
   color: #fff;
   padding: 5px;
@@ -53,4 +53,11 @@ body {
   color: #008ed6;
   border-radius: 4px;
   padding: 4px;
+}
+
+#share-section .fas {
+  background: #333;
+  color: #fff;
+  padding: 4px;
+  border-radius: 4px;
 }
