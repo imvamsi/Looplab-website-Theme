@@ -14,7 +14,7 @@ body {
   background-attachment: fixed;
   background-position: cover;
   min-height: 700px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7));
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.7)); */
 }
 
 #home-section .dark-overlay {
@@ -39,4 +39,18 @@ body {
   background: #fff;
   padding: 5px;
   border-radius: 5px;
+}
+
+.explore-section .fas {
+  background: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 7px;
+}
+
+#create-section .fas {
+  background: #fff;
+  color: #008ed6;
+  border-radius: 4px;
+  padding: 4px;
 }
